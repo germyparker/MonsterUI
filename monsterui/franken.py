@@ -1255,7 +1255,7 @@ def NavBar(*c, # Component for right side of navbar (Often A tag links)
            )->FT: # Responsive NavBar
     "Creates a responsive navigation bar with mobile menu support"
     if menu_id is None: menu_id = fh.unqid()
-    sticky_cls = 'sticky top-4 bg-base-100/80 backdrop-blur-sm z-50' if sticky else ''
+    sticky_cls = 'sticky top-0 bg-base-100/80 backdrop-blur-sm z-50' if sticky else ''
     if uk_scrollspy_nav == True: uk_scrollspy_nav = 'closest: a; scroll: true'
 
     mobile_icon = A(UkIcon("menu", width=30, height=30), cls="md:hidden", data_uk_toggle=f"target: #{menu_id}; cls: hidden")
@@ -1620,7 +1620,7 @@ def LightboxItem(*c, # Component that when clicked will open the lightbox (often
                  **kwargs # Additional args for the `A` tag
                 )->FT: # A(... href, data_alt, cls., ...)
     "Anchor tag with appropriate structure to go inside a `LightBoxContainer`"
-    return fh.A(*c, href=href, data_alt=data_alt, cls=stringify(cls), **kwargs)
+    return fh.A(*c, href=href, data_alt=data_alt, data_caption=data_caption, cls=stringify(cls), **kwargs)
 
 # %% ../nbs/02_franken.ipynb
 def ApexChart(*, 
